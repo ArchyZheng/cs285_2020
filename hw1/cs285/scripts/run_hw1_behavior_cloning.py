@@ -10,8 +10,9 @@ import numpy as np
 from cs285.infrastructure.rl_trainer import RL_Trainer
 from cs285.agents.bc_agent import BCAgent
 from cs285.policies.loaded_gaussian_policy import Loaded_Gaussian_Policy
+import wandb
 
-class BC_Trainer(object):
+class BC_Trainer(object): # the BC means behavior cloning.
     def __init__(self, params):
 
         #######################
@@ -84,7 +85,9 @@ def main():
     parser.add_argument('--which_gpu', type=int, default=0)
     parser.add_argument('--max_replay_buffer_size', type=int, default=1000000)
     parser.add_argument('--seed', type=int, default=1)
+    parser.add_argument('--experiment_name', type=str, default="default")
     args = parser.parse_args()
+    wandb.init(group=args.experiment_name, sync_tensorboard=True)
 
     # convert args to dictionary
     params = vars(args)
@@ -124,6 +127,7 @@ def main():
 
     trainer = BC_Trainer(params)
     trainer.run_training_loop()
+    wandb.finish()
 
 if __name__ == "__main__":
     main()
