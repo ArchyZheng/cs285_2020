@@ -87,7 +87,7 @@ def main():
     parser.add_argument('--seed', type=int, default=1)
     parser.add_argument('--experiment_name', type=str, default="default")
     args = parser.parse_args()
-    wandb.init(group=args.experiment_name, sync_tensorboard=True)
+    wandb.init(group=args.experiment_name, sync_tensorboard=True, project="cs285_2020_homework1")
 
     # convert args to dictionary
     params = vars(args)
