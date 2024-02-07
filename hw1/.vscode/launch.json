@@ -1,0 +1,25 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "python_experiment_1",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "cs285/scripts/run_hw1_behavior_cloning.py",
+            "cwd": "${workspaceFolder}",
+            "args": ["--expert_policy_file=cs285/policies/experts/Ant.pkl", "--env_name=Ant-v2", "--exp_name=test_bc_ant", "--n_iter=1", "--expert_data=cs285/expert_data/expert_data_Ant-v2.pkl"],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "python_experiment_2",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "cs285/scripts/run_hw1_behavior_cloning.py",
+            "args": ["--expert_policy_file cs285/policies/experts/Ant.pkl --env_name Ant-v2 --exp_name test_bc_ant --n_iter 1 --expert_data cs285/expert_data/expert_data_Ant-v2.pkl"],
+            "console": "integratedTerminal"
+        }
+    ]
+}
